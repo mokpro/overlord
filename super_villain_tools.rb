@@ -1,4 +1,5 @@
 require_relative 'bomb.rb'
+
 class SuperVillainTools
   attr_accessor :tools
   def initialize

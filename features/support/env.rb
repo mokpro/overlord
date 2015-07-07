@@ -5,10 +5,10 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 require 'coveralls'
+Coveralls.wear!
+
 require_relative '../../super_villain_tools.rb'
 require_relative '../../overlord.rb'
-
-Coveralls.wear!
 
 Capybara.app = Overlord
 
