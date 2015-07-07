@@ -1,9 +1,6 @@
 require 'sinatra/base'
 require 'facets'
 require_relative 'super_villain_tools'
-require 'coveralls'
-
-Coveralls.wear!
 
 class Overlord < Sinatra::Base
   enable :sessions
