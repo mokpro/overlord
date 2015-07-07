@@ -3,6 +3,7 @@ require 'rack/test'
 require_relative '../../super_villain_tools.rb'
 require_relative '../../overlord.rb'
 
+# rubocop:disable Lint/UnusedBlockArgument
 Before do
   visit '/bomb_status'
   @options = {}
@@ -20,7 +21,7 @@ Then 'create a bomb' do
   step 'I click on create button'
 end
 
-Then /^show a notification "([^"]*)"$/ do |status|
+Then(/^show a notification "([^"]*)"$/) do |status|
   fail 'error' unless page.body.include? status
 end
 
@@ -28,26 +29,27 @@ Given 'activation code input is empty' do
   step 'no bomb is booted/created'
 end
 
-Then /^set activation code to (\d+)$/ do |activation_code|
+Then(/^set activation code to (\d+)$/) do |activation_code|
   step 'create a bomb'
 end
 
-When /^I input an activation code "([^"]*)"$/ do |activation_code|
+When(/^I input an activation code "([^"]*)"$/) do |activation_code|
   @options['activation_code'] = activation_code
 end
 
-Then /^set the activation code to "([^"]*)"$/ do |activation_code|
+Then(/^set the activation code to "([^"]*)"$/) do |activation_code|
   step 'create a bomb'
 end
 
-Given 'deactivation code input is empty' do
+Given('deactivation code input is empty') do
   step 'no bomb is booted/created'
 end
 
-Then /^set deactivation code to "([^"]*)"$/ do |deactivation_code|
+Then(/^set deactivation code to "([^"]*)"$/) do |deactivation_code|
   step 'create a bomb'
 end
 
-When /^I input a deactivation code "([^"]*)"$/ do |deactivation_code|
+When(/^I input a deactivation code "([^"]*)"$/) do |deactivation_code|
   @options['deactivation_code'] = deactivation_code
 end
+# rubocop:enable Lint/UnusedBlockArgument
