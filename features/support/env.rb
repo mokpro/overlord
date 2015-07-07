@@ -7,7 +7,9 @@ require File.join(File.dirname(__FILE__), '..', '..', 'overlord.rb')
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'coveralls'
 
+Coveralls.wear!
 Capybara.app = Overlord
 
 class OverlordWorld
