@@ -1,8 +1,3 @@
-ENV['RACK_ENV'] = 'test'
-require 'rack/test'
-require_relative '../../super_villain_tools.rb'
-require_relative '../../overlord.rb'
-
 Given 'a bomb is created/booted' do
   step 'activation code input is empty'
   step 'I input an activation code "4242"'
