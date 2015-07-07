@@ -1,0 +1,15 @@
+language: ruby
+cache: bundler
+bundler_args: --deployment
+
+rvm:
+  - 2.2.2
+
+env:
+  matrix:
+    - TEST_SUITE=rubocop
+    - TEST_SUITE=spec
+    - TEST_SUITE=spec_js
+    - TEST_SUITE=cucumber
+
+script: bundle exec rake $TEST_SUITE
