@@ -17,15 +17,14 @@ class Overlord < Sinatra::Base
   end
 
   get '/bomb_status' do
-    return "No Bomb" unless @tools.bomb?
-    @tools.bomb.status.to_s.capitalize + " Bomb"
+    return 'No Bomb' unless @tools.bomb?
+    @tools.bomb.status.to_s.capitalize + ' Bomb'
   end
 
   post '/create_bomb' do
-    options = params["options"].nil? ? params.symbolize_keys : params["options"].symbolize_keys
     begin
       @tools.create_bomb(options: options)
-      message = @tools.bomb? ? "Bomb is created" : "Bomb not created"
+      message = @tools.bomb? ? 'Bomb is created' : 'Bomb not created'
     rescue StandardError => e
       message = e.to_s
     end
@@ -34,18 +33,24 @@ class Overlord < Sinatra::Base
 
   post '/activate_bomb' do
     @tools.bomb.activate(params[:activation_code])
-    @tools.bomb.active? ? "Bomb Activated" : "Wrong Code"
+    @tools.bomb.active? ? 'Bomb Activated' : 'Wrong Code'
   end
 
   post '/deactivate_bomb' do
     @tools.bomb.deactivate(params[:deactivation_code])
-    message = @tools.bomb.active? ? "Wrong Code" : "Bomb deactivated"
-    message = "Wrong Code, Bomb detonated" if @tools.bomb.detonated?
+    message = @tools.bomb.active? ? 'Wrong Code' : 'Bomb deactivated'
+    message = 'Wrong Code, Bomb detonated' if @tools.bomb.detonated?
     message
   end
+
   # we can shove stuff into the session cookie YAY!
   def start_time
     session[:start_time] ||= (Time.now).to_s
+  end
+
+  def options
+    opt = params['options'].nil? ? params : params['options']
+    opt.symbolize_keys
   end
 
   run! if app_file == $PROGRAM_NAME

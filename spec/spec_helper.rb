@@ -2,6 +2,9 @@ require File.join(File.dirname(__FILE__), '..', 'overlord.rb')
 
 require 'sinatra'
 require 'rack/test'
+require 'coveralls'
+
+Coveralls.wear!
 
 # setup test environment
 set :environment, :test

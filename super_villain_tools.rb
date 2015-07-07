@@ -10,8 +10,8 @@ class SuperVillainTools
   end
 
   def create_bomb(options: {})
-    raise "Invalid Code" unless valid_bomb_options?(options)
-    add_tool(type: "bomb", options: options)
+    fail 'Invalid Code' unless valid_bomb_options?(options)
+    add_tool(type: 'bomb', options: options)
   end
 
   def bomb
@@ -20,8 +20,8 @@ class SuperVillainTools
 
   private
 
-  def add_tool(type: "bomb", options: {})
-    if type == "bomb"
+  def add_tool(type: 'bomb', options: {})
+    if type == 'bomb'
       @tools[type.to_sym] = Bomb.new(options)
     else
       @tools[type.to_sym] = type
@@ -30,13 +30,13 @@ class SuperVillainTools
 
   def number?(input)
     # FIXME: weird hack. may need to fix
-    # int.to_i.to_s != int.to_s for "0000"
+    # int.to_i.to_s != int.to_s for '0000'
     init_len = input.length
     input_int = input.to_i
     input_str = input_int.to_s
     new_len = input_str.length
 
-    new_input_str = "0" * (init_len - new_len) + input_str
+    new_input_str = '0' * (init_len - new_len) + input_str
 
     new_input_str == input.to_s
   end
