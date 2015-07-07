@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/mokpro/overlord/badge.svg?branch=master&service=github)](https://coveralls.io/github/mokpro/overlord?branch=master) [![Build Status](https://travis-ci.org/mokpro/overlord.svg?branch=master)](https://travis-ci.org/mokpro/overlord)
+
 Part of https://leveluprails.com/
 
 ## Super Villain's Detonation Device

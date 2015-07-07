@@ -3,7 +3,7 @@ cache: bundler
 bundler_args: --deployment
 
 rvm:
-  - 2.2.2
+  - 2.0.0
 
 env:
   matrix:
